@@ -12,14 +12,14 @@ public abstract class AbstractDialog<T> implements Dialog<T> {
         this.errorMessage = errorMessage;
     }
 
-    public String input() {
+    public T input() {
         while (true) {
             showTitle(title);
             String input = scanner.nextLine();
             if (isTypeValid(input)) {
                 T result = parseInput(input);
                 if (isAllowed(result)) {
-                    return (String) result;
+                    return result;
                 }
             }
             showError();

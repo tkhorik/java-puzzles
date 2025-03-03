@@ -1,5 +1,5 @@
 package dialogs;
 
-public interface Dialog <T> {
-    String input();
+public interface Dialog<T> {
+    T input();
 }

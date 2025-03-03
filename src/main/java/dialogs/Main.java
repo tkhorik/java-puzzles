@@ -9,15 +9,23 @@ public class Main {
     private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) {
-        IntegerDialog integerDialog = new IntegerDialog("Enter a number between 1 and 10", "Invalid input. Please enter a number between 1 and 10", 1, 10);
-        String input = integerDialog.input();
+//        Dialog<Integer> integerDialog = new IntegerDialog("Enter a number between 1 and 10", "Invalid input. Please enter a number between 1 and 10", 1, 10);
+//        String input = integerDialog.input();
+//        System.out.println(input);
+
+//        String[] keys = {"да", "нет"};
+//        Dialog<String> stringSelectDialog = new StringSelectDialog("Выберите один из вариантов" + showVariants(keys),
+//                "Неверный ввод. Пожалуйста, выберите один из вариантов" + showVariants(keys), keys);
+//        String input2 = stringSelectDialog.input();
+//        System.out.println(input2);
+//
+//        Dialog<Character> characterDialog = new CharacterDialog("Enter a character", "Invalid input. Please enter a single character");
+//        Character input3 = characterDialog.input();
+//        System.out.println(input3);
+        Dialog<Character> russianLetterDialog = new RussianLetterDialog("Enter a character", "Invalid input. Please enter a single character");
+        Character input = russianLetterDialog.input();
         System.out.println(input);
 
-        String[] keys = {"да", "нет"};
-        Dialog<String> stringSelectDialog = new StringSelectDialog("Выберите один из вариантов" + showVariants(keys),
-                "Неверный ввод. Пожалуйста, выберите один из вариантов" + showVariants(keys), keys);
-        String input2 = stringSelectDialog.input();
-        System.out.println(input2);
     }
 
     static String showVariants(String[] keys) {
