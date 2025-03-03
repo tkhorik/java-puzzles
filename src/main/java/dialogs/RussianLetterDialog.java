@@ -2,7 +2,7 @@ package dialogs;
 
 public class RussianLetterDialog extends CharacterDialog {
     public RussianLetterDialog(String title, String errorMessage) {
-        super(title, errorMessage);
+        super("Enter a Russian letter", errorMessage);
     }
 
     @Override
