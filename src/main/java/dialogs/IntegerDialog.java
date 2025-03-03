@@ -1,6 +1,6 @@
 package dialogs;
 
-public class IntegerDialog extends AbstractDialog<Integer> {
+public class IntegerDialog extends AbstractDialog<String> {
 
     private final int min;
     private final int max;
@@ -12,19 +12,30 @@ public class IntegerDialog extends AbstractDialog<Integer> {
     }
 
     @Override
-    public String input() {
-        while (true) {
-            System.out.println(title);
-            try {
-                int result = Integer.parseInt(input.nextLine());
-                if (result < min || result > max) {
-                    System.out.println(errorMessage);
-                } else {
-                    return null;
-                }
-            } catch (NumberFormatException e) {
-                System.out.println(errorMessage);
-            }
+    protected boolean isTypeValid(String input) {
+        try {
+            Integer.parseInt(input);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
+    }
+
+    @Override
+    protected String parseInput(String input) {
+        return input;
+    }
+
+    @Override
+    protected boolean isAllowed(String input) {
+        try {
+            int result = Integer.parseInt(input);
+            if (result >= min && result <= max) {
+                return true;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println(errorMessage);
+        }
+        return false;
     }
 }
