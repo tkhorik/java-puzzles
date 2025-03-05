@@ -5,7 +5,7 @@ public class StringSelectDialog extends AbstractDialog<String> {
     private final String[] options;
 
     public StringSelectDialog(String title, String errorMessage, String[] options) {
-        super(title, errorMessage);
+        super(title, errorMessage, s -> s);
         this.options = options;
     }
 
@@ -14,10 +14,10 @@ public class StringSelectDialog extends AbstractDialog<String> {
         return true;
     }
 
-    @Override
-    protected String parseInput(String input) {
-        return input;
-    }
+//    @Override
+//    protected String parseInput(String input) {
+//        return input;
+//    }
 
     @Override
     protected boolean isAllowed(String result) {

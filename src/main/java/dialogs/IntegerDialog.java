@@ -5,7 +5,9 @@ public class IntegerDialog extends AbstractDialog<Integer> {
     private final int max;
 
     public IntegerDialog(String title, String errorMessage, int min, int max) {
-        super(title, errorMessage);
+        super(title,
+                errorMessage,
+                Integer::parseInt);
         this.min = min;
         this.max = max;
     }
@@ -18,11 +20,6 @@ public class IntegerDialog extends AbstractDialog<Integer> {
         } catch (NumberFormatException e) {
             return false;
         }
-    }
-
-    @Override
-    protected Integer parseInput(String input) {
-        return Integer.valueOf(input);
     }
 
     @Override
