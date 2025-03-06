@@ -1,36 +1,31 @@
 package dialogs;
 
+import java.util.function.Predicate;
+
 public class IntegerDialog extends AbstractDialog<Integer> {
-    private final int min;
-    private final int max;
 
     public IntegerDialog(String title, String errorMessage, int min, int max) {
         super(title,
                 errorMessage,
-                Integer::parseInt);
-        this.min = min;
-        this.max = max;
+                Integer::parseInt,
+                new minMacrealizator(min, max));
+        //тут же его реализовали при помощи анонимного класса
+//                n -> n >= min && n <= max);
     }
 
-    @Override
-    protected boolean isTypeValid(String input) {
-        try {
-            Integer.parseInt(input);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
+    // Здесь мы создали новый класс minMacrealizator, который реализует интерфейс Predicate<Integer>.
+    private static class minMacrealizator implements Predicate<Integer> {
+        private final int min;
+        private final int max;
 
-    @Override
-    protected boolean isAllowed(Integer input) {
-        try {
-            if (input >= min && input <= max) {
-                return true;
-            }
-        } catch (NumberFormatException e) {
-            System.out.println(errorMessage);
+        public minMacrealizator(int min, int max) {
+            this.min = min;
+            this.max = max;
         }
-        return false;
+
+        @Override
+        public boolean test(Integer n) {
+            return n >= min && n <= max;
+        }
     }
 }

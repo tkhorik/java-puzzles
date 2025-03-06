@@ -5,8 +5,8 @@ public class RussianLetterDialog extends CharacterDialog {
         super("Enter a Russian letter", errorMessage);
     }
 
-    @Override
-    protected boolean isAllowed(Character result) {
-        return Character.UnicodeBlock.of(result) == Character.UnicodeBlock.CYRILLIC;
-    }
+//    @Override
+//    protected boolean isAllowed(Character result) {
+//        return Character.UnicodeBlock.of(result) == Character.UnicodeBlock.CYRILLIC;
+//    }
 }

@@ -2,30 +2,14 @@ package dialogs;
 
 public class StringSelectDialog extends AbstractDialog<String> {
 
-    private final String[] options;
-
     public StringSelectDialog(String title, String errorMessage, String[] options) {
-        super(title, errorMessage, s -> s);
-        this.options = options;
-    }
-
-    @Override
-    protected boolean isTypeValid(String input) {
-        return true;
-    }
-
-//    @Override
-//    protected String parseInput(String input) {
-//        return input;
-//    }
-
-    @Override
-    protected boolean isAllowed(String result) {
-        for (String option : options) {
-            if (option.equalsIgnoreCase(result)) {
-                return true;
+        super(title, errorMessage, s -> s, s -> {
+            for (String option : options) {
+                if (option.equals(s)) {
+                    return true;
+                }
             }
-        }
-        return false;
+            return false;
+        });
     }
 }
