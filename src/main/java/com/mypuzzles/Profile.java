@@ -11,8 +11,11 @@ public class Profile {
     public Long groupId;
 
     public Profile(long l, long l1, long l2) {
+    }
 
-
+    @Override
+    public String toString() {
+        return "Profile{id=" + id + ", orgId=" + organizationId + ", groupId=" + groupId + "}";
     }
 
     public static Map<Long, Map<Long, List<Profile>>> groupByOrgIdAndGroupId(List<Profile> data) {
