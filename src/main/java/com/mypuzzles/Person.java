@@ -1,6 +1,8 @@
 package com.mypuzzles;
 
 import java.util.List;
+import java.util.Optional;
+
 // Реализовать функцию поиска человека по имени в списке
 public class Person {
     final private String name;
@@ -11,14 +13,21 @@ public class Person {
         this.age = age;
     }
 
-    Person findPersonByName(List<Person> persons, String name) {
+    Optional<Person> findPersonByName(List<Person> persons, String name) {
         for (Person person : persons) {
             if (person.name.equals(name)) {
-                return person;
+                return Optional.of(person);
             }
         }
-        return null;
+        return Optional.empty();
     }
+//        for (Person person : persons) {
+//            if (person.name.equals(name)) {
+//                return person;
+//            }
+//        }
+//        return null;
+//    }
 
     public void printDetails() {
         System.out.println("Name: " + name);
@@ -27,13 +36,18 @@ public class Person {
 
     public static void main(String[] args) {
         List<Person> persons = List.of(
-            new Person("Alice", 30),
-            new Person("Bob", 25),
-            new Person("Charlie", 35)
+                new Person("Alice", 30),
+                new Person("Bob", 25),
+                new Person("Charlie", 35)
         );
-        Person person = new Person("Alice", 30);
-        person.printDetails();
-        Person foundPerson = person.findPersonByName(persons, "Bob");
-        System.out.println(foundPerson.age);
+
+        Person personInstance = new Person("Dummy", 0); // Create an instance to call the method
+        Optional<Person> foundPerson = personInstance.findPersonByName(persons, "Bob");
+
+        foundPerson.ifPresent(person -> {
+            System.out.println(person.name);
+            System.out.println(person.age);
+        });
+        System.out.println();
     }
 }
