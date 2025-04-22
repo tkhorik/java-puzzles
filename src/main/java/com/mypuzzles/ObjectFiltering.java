@@ -15,9 +15,17 @@ class CarObject {
         this.rentPerHour = rentPerHour;
     }
 
-    public int getId() { return id; }
-    public String getModel() { return model; }
-    public int getRentPerHour() { return rentPerHour; }
+    public int getId() {
+        return id;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getRentPerHour() {
+        return rentPerHour;
+    }
 
     @Override
     public String toString() {
@@ -40,9 +48,10 @@ public class ObjectFiltering {
         // Filter cars with rentPerHour less than 70 using the Stream API
         List<CarObject> affordableCars = cars.stream()
                 .filter(car -> car.getRentPerHour() < 70)
-                .collect(Collectors.toList());
+                .toList();
 
         System.out.println("Affordable Cars (rent < $70):");
+//        affordableCars.forEach(System.out::println);
         affordableCars.forEach(System.out::println);
     }
 }
