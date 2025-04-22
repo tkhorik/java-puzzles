@@ -3,7 +3,7 @@ package com.mypuzzles;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-
+//interview-practice
 public class BestBuer {
     public static void main(String[] args) {
 //Задача 1: Поиск "самого дорогого" покупателя
