@@ -1,4 +1,4 @@
-package com.gpt;
+package com.gpt.twosum;
 
 import java.util.Arrays;
 

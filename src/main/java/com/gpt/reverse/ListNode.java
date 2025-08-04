@@ -1,6 +1,17 @@
 package com.gpt.reverse;
 
-public class ReverseLinkedList {
-    Reverse a Linked List
-            p
+public class ListNode {
+    private ListNode next;
+
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        while (head != null) {
+            ListNode next = head.next;
+            head.next = prev;
+            prev = head;
+            head = next;
+        }
+        return prev;
+    }
+
 }

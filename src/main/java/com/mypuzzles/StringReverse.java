@@ -1,15 +1,19 @@
 package com.mypuzzles;
 
+import java.sql.SQLOutput;
+
 public class StringReverse {
-    public static String reverse(String input) {
-        // Using StringBuilder's in-built reverse() method
-        return new StringBuilder(input).reverse().toString();
+    public static String reverse(String str) {
+        if (str == null || str.isEmpty()) {
+            return str;
+        }
+        StringBuilder reversed = new StringBuilder(str);
+        return reversed.reverse().toString();
     }
 
     public static void main(String[] args) {
-        String input = "Independent";
-        String reversed = reverse(input);
-        System.out.println("Original: " + input);
-        System.out.println("Reversed: " + reversed);
+
+        System.out.println(StringReverse.reverse("this is the string"));
     }
 }
+// this is the simple ide for codding and without helpers autocomplete and etc.
