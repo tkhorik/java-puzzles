@@ -2,7 +2,7 @@ package com.mypuzzles;
 
 import java.util.concurrent.*;
 
-public class CounterWithCompatableFuture                   t
+public class CounterWithCompatableFuture {
 
     public static void main(String[] args) {
 //        runCounting(30); // count from 5 down
@@ -32,4 +32,3 @@ public class CounterWithCompatableFuture                   t
         }
     }
 }
-
