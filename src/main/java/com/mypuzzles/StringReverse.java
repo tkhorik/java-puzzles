@@ -1,7 +1,5 @@
 package com.mypuzzles;
 
-import java.sql.SQLOutput;
-
 public class StringReverse {
     public static String reverse(String str) {
         if (str == null || str.isEmpty()) {
@@ -12,7 +10,6 @@ public class StringReverse {
     }
 
     public static void main(String[] args) {
-
         System.out.println(StringReverse.reverse("this is the string"));
     }
 }
