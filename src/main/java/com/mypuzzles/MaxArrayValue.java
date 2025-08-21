@@ -3,24 +3,25 @@ package com.mypuzzles;
 public class MaxArrayValue {
     public static void main(String[] args) {
         int[] arr1 = {1, 2, 356, 5, 35, 3};
-        int[] arr2 = {3, 5, 2, 1, 55, 2, 3};
+        int[] arr2 = {3, 5, 2, 1111, 55, 2, 3};
         System.out.println(maxValueFromTwoArrays(arr1, arr2));
     }
 
     private static int maxValueFromTwoArrays(int[] arr1, int[] arr2) {
         int max1 = arr1[0];
         int max2 = arr2[0];
-        for (int i = 0; i < arr1.length; i++) {
-            if (arr1[i] > max1) max1 = arr1[i];
+        int i = 0;
+        while (i < arr1.length) {
+            if (max1 < arr1[i]) max1 = arr1[i];
+            i++;
         }
-        for (int i = 0; i < arr2.length; i++) {
-            if (arr2[i] > max2) max2 = arr2[i];
+        while (i < arr1.length) {
+            if (max2 < arr1[i]) max2 = arr2[i];
+            i++;
         }
         return max1 > max2 ? max1 : max2;
     }
-
 }
-
 
 //    public static int maxIntInTwoArrays(int[] arr1, int[] arr2) {
 //        int max1 = arr1[0];
