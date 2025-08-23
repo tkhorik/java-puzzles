@@ -3,6 +3,7 @@ package com.mypuzzles;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTimeout;
 
 public class FizzBuzz {
 
@@ -24,11 +25,21 @@ public class FizzBuzz {
         }
     }
 
+
     public static void main(String[] args) {
         for (int i = 0; i < 101; i++) {
-            System.out.println(pringFizzBuzz(i));
-
+//            System.out.println(pringFizzBuzz(i));
+            System.out.println(fizzBuzz(i));
         }
+    }
+
+    private static String fizzBuzz(int i) {
+        String replay = "heeelll yeeaa!";
+        System.out.println(i);
+        if (i % 3 == 0 && i % 5 == 0) {
+            return replay;
+        }
+        else return "yuppy!";
     }
 }
 
@@ -39,5 +50,4 @@ class FizzBuzzTest {
         assertEquals("Buzz", FizzBuzz.pringFizzBuzz (5));
         assertEquals("FizzBuzz", FizzBuzz.pringFizzBuzz (15));
         assertEquals("7", FizzBuzz.pringFizzBuzz(7));
-    }
-}
+    }}

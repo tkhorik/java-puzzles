@@ -1,5 +1,7 @@
 package com.mypuzzles;
 
+import java.util.Arrays;
+
 public class LargestElement {
 //    public static int findLargest(int[] arr) {
 //
@@ -29,13 +31,8 @@ public class LargestElement {
     }
 
     private static int findLargest(int[] arr) {
-        int max = arr[0];
-        for (int i = 0; i < arr.length; i++) {
-
-            if (arr[i] > max) {
-                max = arr[i];
-            }
-        }
-        return max;
+         int max = Arrays.stream(arr).max().orElseThrow();
+         return max;
     }
+
 }
