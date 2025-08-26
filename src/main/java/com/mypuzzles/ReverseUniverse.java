@@ -1,5 +1,7 @@
 package com.mypuzzles;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class ReverseUniverse {
@@ -11,6 +13,15 @@ public class ReverseUniverse {
 
     private static String myReversedStringRealization(String s) {
         int[] cps = s.codePoints().toArray();
+
+        Map <Integer,Integer> map = new HashMap<>( );
+        map.put(null,1);
+        for (var entry : map.entrySet()) {
+//            String.valueOf(null) returns the literal string "null", not a crash.
+            System.out.println(entry.getKey() +" "+ String.valueOf(entry.getValue()));
+
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
         for (int i = 0, j = cps.length - 1; i < j; i++, j--) {
             int temp = cps[i];
             cps[i] = cps[j];
@@ -19,11 +30,3 @@ public class ReverseUniverse {
         return new String(cps,0, cps.length );
     }
 }
-//public static String reverseByCodePoints(String s) {
-//    int[] cps = s.codePoints().toArray();  // O(n) code points
-//    // reverse code points
-//    for (int i = 0, j = cps.length - 1; i < j; i++, j--) {
-//        int tmp = cps[i]; cps[i] = cps[j]; cps[j] = tmp;
-//    }
-//    return new String(cps, 0, cps.length);
-//}
