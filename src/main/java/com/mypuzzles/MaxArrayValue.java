@@ -10,14 +10,11 @@ public class MaxArrayValue {
     private static int maxValueFromTwoArrays(int[] arr1, int[] arr2) {
         int max1 = arr1[0];
         int max2 = arr2[0];
-        int i = 0;
-        while (i < arr1.length) {
-            if (max1 < arr1[i]) max1 = arr1[i];
-            i++;
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] > max1) max1 = arr1[i];
         }
-        while (i < arr1.length) {
-            if (max2 < arr1[i]) max2 = arr2[i];
-            i++;
+        for (int i = 0; i < arr2.length; i++) {
+            if (arr2[i] > max2) max2 = arr2[i];
         }
         return max1 > max2 ? max1 : max2;
     }
