@@ -11,9 +11,7 @@ public class Singleton {
 
     // Public method to retrieve the single instance
     public static Singleton getInstance() {
-        if (singleInstance == null) {
-            singleInstance = new Singleton();
-        }
+        if (singleInstance == null) singleInstance = new Singleton();
         return singleInstance;
     }
 

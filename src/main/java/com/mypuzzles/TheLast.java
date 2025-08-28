@@ -12,7 +12,7 @@ public class TheLast {
     }
 
     private static int firstNotDoubled(int[] nums) {
-//        here i will store values and it occurecies
+//        here i will store values and it occurrences
         Map<Integer, Integer> countMap = new LinkedHashMap<>();
         for (int num : nums) {
             countMap.put(num, countMap.getOrDefault(num, 0) + 1);
@@ -23,7 +23,7 @@ public class TheLast {
                 return num;
             }
         }
-        return -1; //if we have no unique value;
+        return -1; //if we have no unique valuejj;
     }
 }
 
